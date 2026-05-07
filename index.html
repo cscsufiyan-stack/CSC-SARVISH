@@ -117,6 +117,7 @@
       .marquee-bar { font-size: 0.65rem; padding: 0.4rem 0; }
       .poster-card .p-5 { padding: 0.6rem 0.8rem 0.8rem 0.8rem; }
       .contact-box { padding: 1rem; }
+      .nav-buttons { display: none; }
     }
     .empty-gallery {
       background: #ffffffdd;
@@ -182,6 +183,37 @@
       background: #4c4990;
       color: white;
     }
+    /* नेविगेशन बटन स्टाइल */
+    .nav-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+    .nav-btn:hover {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+    body.dark-mode .nav-btn {
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+    }
+    body.dark-mode .nav-btn:hover {
+      background: linear-gradient(135deg, #818cf8, #6366f1);
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-indigo-50 via-white to-slate-100 font-sans antialiased">
@@ -195,6 +227,20 @@
         <p class="text-gray-500 text-xs"><i class="fas fa-globe-asia"></i> जन सुविधा केंद्र | सरकारी सेवाएँ</p>
       </div>
     </div>
+    
+    <!-- नेविगेशन बटन -->
+    <div class="nav-buttons">
+      <button class="nav-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-home"></i> होम
+      </button>
+      <button class="nav-btn" onclick="document.getElementById('galleryContainer').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-briefcase"></i> सेवाएँ
+      </button>
+      <button class="nav-btn" onclick="document.querySelector('.contact-box').scrollIntoView({behavior:'smooth'})">
+        <i class="fas fa-phone-alt"></i> संपर्क
+      </button>
+    </div>
+    
     <div class="flex items-center gap-3">
       <img src="https://iili.io/BLcZ8wN.png" alt="Right Logo" class="h-12 md:h-20 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/60x60?text=Logo';">
       <!-- डार्क/लाइट मोड टॉगल बटन -->
@@ -207,7 +253,7 @@
 
 <div class="marquee-bar">
   <div class="marquee-content">
-    📢 Shoaib CSC Center में सभी सरकारी व डिजिटल सेवाएँ उपलब्ध हैं | तेज सेवा | सही काम | आज ही विजिट करें!    ||   
+    📢 Shoaib CSC Center में सभी सरकारी व डिजिटल सेवाएँ उपलब्ध हैं | तेज सेवा | सही काम | आज ही संपर्क करें!
   </div>
 </div>
 
@@ -228,7 +274,7 @@
 
   <div class="mb-5 flex flex-wrap justify-between items-center border-b border-indigo-200 pb-2">
     <div>
-      <h2 class="text-lg md:text-xl font-bold bg-gradient-to-r from-indigo-800 to-purple-700 bg-clip-text text-transparent"><i class="fas fa-concierge-bell text-indigo-600 mr-1"></i> हमारी सेवाओं</h2>
+      <h2 class="text-lg md:text-xl font-bold bg-gradient-to-r from-indigo-800 to-purple-700 bg-clip-text text-transparent"><i class="fas fa-concierge-bell text-indigo-600 mr-1"></i> हमारी सेवाएँ</h2>
       <p class="text-gray-500 text-xs">सरकारी योजनाओं और सेवाओं की जानकारी</p>
     </div>
     <button id="clearAllPostersBtn" class="hidden text-red-600 bg-red-50 px-3 py-1 rounded-lg text-xs font-medium"><i class="fas fa-trash-alt mr-1"></i> सभी हटाएँ</button>
@@ -242,20 +288,20 @@
     <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-headset text-indigo-600 mr-2"></i> अधिक जानकारी के लिए संपर्क करें</h3>
     <div class="grid md:grid-cols-2 gap-5">
       <div>
-        <p class="flex items-center gap-2 mb-2 text-sm"><i class="fas fa-phone-alt text-green-600 w-5"></i> <span class="font-semibold">कॉल करें:</span> <a href="tel:+918273441638" class="text-blue-600">8273441638</a></p>
-        <p class="flex items-center gap-2 mb-2 text-sm"><i class="fab fa-whatsapp text-green-500 w-5"></i> <span class="font-semibold">व्हाट्सएप:</span> <a href="https://wa.me/918273441638" target="_blank">8273441638</a></p>
-        <p class="flex items-center gap-2 mb-2 text-sm"><i class="fas fa-envelope text-red-500 w-5"></i> <span class="font-semibold">ईमेल:</span> <a href="mailto:cscshoaib123@gmail.com">cscshoaib123@gmail.com</a></p>
+        <p class="flex items-center gap-2 mb-2 text-sm"><i class="fas fa-phone-alt text-green-600 w-5"></i> <span class="font-semibold">कॉल करें:</span> <a href="tel:+918273441638" class="text-indigo-600 hover:underline">+91 827-344-1638</a></p>
+        <p class="flex items-center gap-2 mb-2 text-sm"><i class="fab fa-whatsapp text-green-500 w-5"></i> <span class="font-semibold">व्हाट्सएप:</span> <a href="https://wa.me/918273441638" target="_blank" class="text-indigo-600 hover:underline">9182 7344 1638</a></p>
+        <p class="flex items-center gap-2 mb-2 text-sm"><i class="fas fa-envelope text-red-500 w-5"></i> <span class="font-semibold">ईमेल:</span> <a href="mailto:cscshoaib123@gmail.com" class="text-indigo-600 hover:underline">cscshoaib123@gmail.com</a></p>
       </div>
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-1">अपनी समस्या या सुझाव लिखें</label>
-        <textarea id="complaintText" rows="2" class="w-full border border-gray-300 rounded-xl px-3 py-2 text-sm" placeholder="जैसे: आधार कार्ड अपडेट, पैन कार्ड..."></textarea>
-        <button id="sendWhatsAppBtn" class="whatsapp-btn mt-2 text-white font-medium py-1.5 px-5 rounded-xl shadow flex items-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> व्हाट्सएप पर भेजें</button>
+        <textarea id="complaintText" rows="2" class="w-full border border-gray-300 rounded-xl px-3 py-2 text-sm" placeholder="जैसे: आधार कार्ड अपडेट, पैन कार्ड, डिजिटल सेवाएँ आदि"></textarea>
+        <button id="sendWhatsAppBtn" class="whatsapp-btn mt-2 text-white font-medium py-1.5 px-5 rounded-xl shadow flex items-center gap-2 text-sm"><i class="fab fa-whatsapp"></i> व्हाट्सएप भेजें</button>
       </div>
     </div>
   </div>
 
   <div class="text-center text-xs text-gray-400 mt-10 pt-4 border-t border-gray-200">POWER BY MOHD SUFIYAN</div>
-  <div id="loadingIndicator" class="loading hidden fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-indigo-800 text-white px-4 py-2 rounded-full text-sm z-50"><i class="fas fa-spinner fa-pulse"></i> लोड हो रहा...</div>
+  <div id="loadingIndicator" class="loading hidden fixed bottom-20 left-1/2 transform -translate-x-1/2 bg-indigo-800 text-white px-4 py-2 rounded-full text-sm z-50"><i class="fas fa-spinner fa-pulse mr-2"></i> लोड हो रहा है...</div>
 </main>
 
 <!-- फ्लोटिंग मोबाइल मेनू -->
@@ -389,17 +435,17 @@
   window.closeViewer = (e) => { if(!e || e.target.classList.contains('close-viewer') || e.target === e.currentTarget) document.getElementById('viewerModal').classList.add('hidden'); };
 
   function renderGallery(posters) {
-    if(!posters.length) { gallery.innerHTML = `<div class="empty-gallery"><i class="fas fa-concierge-bell text-4xl text-indigo-300 mb-2"></i><p class="text-gray-500 text-sm">कोई पोस्टर नहीं। एडमिन लॉगिन करें (लोगो पर 5 बार क्लिक करें)</p></div>`; return; }
+    if(!posters.length) { gallery.innerHTML = `<div class="empty-gallery"><i class="fas fa-concierge-bell text-4xl text-indigo-300 mb-2"></i><p class="text-gray-500 text-sm">कोई पोस्टर नहीं मिला</p></div>`; return; }
     gallery.innerHTML = posters.map(p => {
       if(p.fileType === 'image') {
-        return `<div class="poster-card"><div class="poster-img-container" onclick="openViewer('${p.imageUrl}','${escapeHtml(p.title)}')"><img src="${p.imageUrl}" loading="lazy"></div><div class="p-5"><h3>${escapeHtml(p.title)}</h3>${isAdmin ? `<div class="flex justify-end mt-1"><button class="delete-poster text-red-600" data-id="${p.id}"><i class="fas fa-trash-alt"></i> हटाएँ</button></div>` : ''}</div></div>`;
+        return `<div class="poster-card"><div class="poster-img-container" onclick="openViewer('${p.imageUrl}','${escapeHtml(p.title)}')"><img src="${p.imageUrl}" loading="lazy"></div><div class="p-5"><h3>${escapeHtml(p.title)}</h3>${isAdmin ? `<button class="delete-poster text-red-600 mt-2" data-id="${p.id}">हटाएँ</button>` : ''}</div></div>`;
       } else { return `<div class="poster-card p-4"><h3>${escapeHtml(p.title)}</h3>${isAdmin ? `<button class="delete-poster text-red-600 mt-2" data-id="${p.id}">हटाएँ</button>` : ''}</div>`; }
     }).join('');
     if(isAdmin) document.querySelectorAll('.delete-poster').forEach(btn => btn.addEventListener('click', async(e) => { e.stopPropagation(); if(confirm("हटाएँ?")) await deletePoster(btn.dataset.id); }));
   }
 
   async function deletePoster(id) { showLoading(true); try{ await deleteDoc(doc(db,"posters",id)); showToast("हटा दिया","success"); await loadPosters(); } catch(e){ showError(e.message); } finally{ showLoading(false); } }
-  async function clearAll() { if(!isAdmin || !confirm("सब हटाएँ?")) return; showLoading(true); try{ const snap=await getDocs(postersCollection); for(let d of snap.docs) await deleteDoc(doc(db,"posters",d.id)); showToast("सभी हटा दिए","success"); await loadPosters(); } catch(e){ showError(e.message); } finally{ showLoading(false); } }
+  async function clearAll() { if(!isAdmin || !confirm("सब हटाएँ?")) return; showLoading(true); try{ const snap=await getDocs(postersCollection); for(let d of snap.docs) await deleteDoc(d.ref); showToast("सब हटा दिया","success"); await loadPosters(); } catch(e){ showError(e.message); } finally{ showLoading(false); } }
 
   function compressImageWithProgress(file, maxW=900, q=0.7) {
     return new Promise((res,rej) => {
@@ -455,7 +501,7 @@
     loadPosters();
   }
   function showLoginModal() { loginModal.classList.remove('hidden'); loginPass.value = ""; }
-  function attemptLogin() { if(loginPass.value.trim() === ADMIN_PASSWORD) { setAdmin(true); loginModal.classList.add('hidden'); showToast("लॉगिन सफल","success"); sessionStorage.setItem('admin_logged_in','true'); } else alert("गलत पासवर्ड!"); }
+  function attemptLogin() { if(loginPass.value.trim() === ADMIN_PASSWORD) { setAdmin(true); loginModal.classList.add('hidden'); showToast("लॉगिन सफल","success"); sessionStorage.setItem('admin_logged_in', 'true'); } else { showError("गलत पासवर्ड"); } }
   function logout() { setAdmin(false); sessionStorage.removeItem('admin_logged_in'); showToast("लॉगआउट","info"); }
   function checkSession() { 
     let logged = sessionStorage.getItem('admin_logged_in') === 'true';
