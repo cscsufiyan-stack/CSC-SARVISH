@@ -522,5 +522,64 @@
   window.adminLogout = logout;
   checkSession();
 </script>
+ 
+
+
+
+
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', function () {
+navigator.serviceWorker.register('./sw.js')
+.then(function () {
+console.log("CSC App Ready");
+})
+.catch(function(error){
+console.log(error);
+});
+});
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e)=>{
+e.preventDefault();
+
+deferredPrompt=e;
+
+const install=document.createElement("button");
+
+install.innerHTML="📲 App Download करें";
+
+install.style.position="fixed";
+install.style.bottom="90px";
+install.style.left="50%";
+install.style.transform="translateX(-50%)";
+install.style.background="#4f46e5";
+install.style.color="white";
+install.style.padding="12px 20px";
+install.style.border="none";
+install.style.borderRadius="50px";
+install.style.fontSize="15px";
+install.style.fontWeight="bold";
+install.style.boxShadow="0 6px 20px rgba(0,0,0,.3)";
+install.style.zIndex="99999";
+
+document.body.appendChild(install);
+
+install.onclick=async()=>{
+
+deferredPrompt.prompt();
+
+const result=
+await deferredPrompt.userChoice;
+
+if(result.outcome==="accepted"){
+install.remove();
+}
+};
+});
+</script>
 </body>
 </html>
+
